@@ -1,6 +1,5 @@
 class EventsController < ApplicationController
-  include EventsHelper
-  
+  helper timeLeft	
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   # GET /events
