@@ -1,37 +1,43 @@
+<div class="container-fluid">
 <p id="notice"><%= notice %></p>
 
-<h1>Events</h1>
+  <!-- Events Title -->
+  <div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-4 col-xs-4"><h1>Events</h1>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-8 col-xs-8 indexAddEvents"><%= link_to 'Add New Event', new_event_path, class: "redBtn" %></div>
 
-Testing
+  </div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Imageurl</th>
-      <th>Date</th>
-      <th>Time</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<!-- Events Listing -->
 
-  <tbody>
-    <% @events.each do |event| %>
-      <tr>
-        <td><%= event.title %></td>
-        <td><%= event.description %></td>
-        <td><%= event.imageurl %></td>
-        <td><%= event.date %></td>
-        <td><%= event.time %></td>
-        <td><%= link_to 'Show', event %></td>
-        <td><%= link_to 'Edit', edit_event_path(event) %></td>
-        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  <% @events.each do |event| %>
 
-<br>
+  <div class="row indexRowEvent">
 
-<%= link_to 'New Event', new_event_path %>
+    <!-- image -->
+    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">    
+      <%= image_tag(event.imageurl, class: "img-responsive text-center") if event.imageurl.present? %><br/>
+    </div>
+
+    <!-- events description -->
+    <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+      <div class="indexEventDate"><%= event.date.strftime("%d %b %Y %A") %> <%= event.time.strftime("%l:%M %p") %> <span class="indexEventDateHidden" id= <%= event.date%> ><%= event.date%></span> </div> 
+
+      <div class="indexEventTimeLeft"></div> 
+      
+      <div class="indexEventTitle"><%= event.title %></div> 
+      <div class="indexEventDescript"><%= event.description %> </div>
+
+      <div class="indexEventLinks">     
+        <%= link_to 'View', event, class:"indexEventLinksBtn" %> &nbsp;
+        <%= link_to 'Edit', edit_event_path(event), class:"indexEventLinksBtn" %> &nbsp;
+        <%= link_to 'Delete', event, class:"indexEventLinksBtn", method: :delete, data: { confirm: 'Are you sure?' } %>
+      </div>  
+    </div>
+
+  </div> 
+
+  <% end %>
+
+</div>
