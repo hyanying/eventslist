@@ -24,17 +24,17 @@
 
     <div class="field bottomPadding5px">
       <%= f.label :title %>
-      <%= f.text_field :title %>
+      <%= f.text_field :title, :class => "textField" %>
     </div>
 
     <div class="field bottomPadding5px">
       <%= f.label :description %>
-      <%= f.text_area :description %>
+      <%= f.text_area :description, :class => "textField newEventDescriptionField" %>
     </div>
 
     <div class="field bottomPadding5px">
       <%= f.label :image %>
-      <%= f.text_field :imageurl %>
+      <%= f.text_field :imageurl, :class => "textField" %></br></br>
 
       Please insert an image url.<br/> 
       For example, try: http://i.imgur.com/egAq1cf.jpg <br/><br/>
