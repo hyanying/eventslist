@@ -5,7 +5,6 @@ module EventsHelper
 		currentDate = Date.today
 		currentTime = Time.now
 		eventDateTime = eventDate + eventTime.seconds_since_midnight.seconds
-		#eventDateTime = eventDateTime.change(:offset => "+0800")
 
 		timeLeft = eventDateTime - Time.now 
 		result = ""
@@ -31,9 +30,7 @@ module EventsHelper
 
 			elsif hoursLeft > 1
 				result += hoursLeft.to_s + " Hours "
-			end
-
-		
+			end		
 			
 		end			
 
