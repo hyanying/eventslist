@@ -139,6 +139,7 @@ th { border-bottom: 1px solid #DDD; }
 
 .indexEventLinksBtn:hover {
   background: #fc6f3c;
+  color: #000000;
   border: solid #fc6f3c 1px;
   text-decoration: none;
 }

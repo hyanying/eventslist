@@ -1,42 +1,74 @@
-<%= form_for(event) do |f| %>
-  <% if event.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
 
-      <ul>
-      <% event.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<div class="row newEventContainer">
+
+  <!--side -->
+  <div class="col-lg-3 col-md-0 col-sm-0 col-xs-0"></div>
+
+  <!-- center content -->
+  <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+
+    <%= form_for(event) do |f| %>
+        
+        <% if event.errors.any? %>
+        
+          <div id="error_explanation">
+            <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
+
+            <ul>
+              <% event.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+    <div class="field bottomPadding5px">
+      <%= f.label :title %>
+      <%= f.text_field :title %>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :title %>
-    <%= f.text_field :title %>
+    <div class="field bottomPadding5px">
+      <%= f.label :description %>
+      <%= f.text_area :description %>
+    </div>
+
+    <div class="field bottomPadding5px">
+      <%= f.label :image %>
+      <%= f.text_field :imageurl %>
+
+      Please insert an image url.<br/> 
+      For example, try: http://i.imgur.com/egAq1cf.jpg <br/><br/>
+      The image should have a minimum width of 1280px.
+
+    </div>
+
+    <div class="field bottomPadding20px">
+      <%= f.label :date %>
+      <%= f.date_select :date %>
+    </div>
+
+    <div class="field bottomPadding20px">
+      <%= f.label :time %>
+      <%= f.time_select :time %>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-4 col-md-4 col-sm-0 col-xs-0"></div>
+      <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+        <div class="actions">
+          <%= f.submit :class => "redBtn btn-block" %>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-0 col-xs-0"></div>
+    </div>
+
+
+    <% end %>
+
+
   </div>
 
-  <div class="field">
-    <%= f.label :description %>
-    <%= f.text_area :description %>
-  </div>
+  <!--side -->
+  <div class="col-lg-3 col-md-0 col-sm-0 col-xs-0"></div>
 
-  <div class="field">
-    <%= f.label :imageurl %>
-    <%= f.text_field :imageurl %>
-  </div>
-
-  <div class="field">
-    <%= f.label :date %>
-    <%= f.date_select :date %>
-  </div>
-
-  <div class="field">
-    <%= f.label :time %>
-    <%= f.time_select :time %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

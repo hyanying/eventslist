@@ -1,29 +1,67 @@
-<p id="notice"><%= notice %></p>
+<div class="row newEventContainer text-center">
 
-<p>
-  <strong>Title:</strong>
-  <%= @event.title %>
-</p>
+  <!--side -->
+  <div class="col-lg-2 col-md-0 col-sm-0 col-xs-0"></div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @event.description %>
-</p>
+  <!-- center content -->
+  <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12 text-center">
 
-<p>
-  <strong>Imageurl:</strong>
-  <%= @event.imageurl %>
-</p>
+    <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Date:</strong>
-  <%= @event.date %>
-</p>
+    <!-- Event Title -->
+    <div class="viewEventContentContainer">
+      <strong>Title:</strong> <%= @event.title %>
+    </div>
 
-<p>
-  <strong>Time:</strong>
-  <%= @event.time %>
-</p>
+    <div class="viewEventContentContainer"> 
+      <strong>Date:</strong> <%= @event.date %>
+    </div>
 
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+    <div class="viewEventContentContainer"> 
+      <strong>Time:</strong> <%= @event.time %>
+    </div>
+
+    <!-- Event Description -->  
+    <div class="viewEventContentContainer"> 
+      <strong>Description:</strong>
+    </div>
+
+
+    <div class="viewEventContentContainer"> 
+      <%= @event.description %>
+    </div>
+
+    <!-- Event Image -->
+    <div class="viewEventContentContainer"> 
+      <strong>Image:</strong>
+    </div>
+
+    <div class="viewEventContentContainer"> 
+      <%= image_tag(@event.imageurl, class: "img-responsive text-center") if @event.imageurl.present? %>
+    </div>
+
+
+
+    <div class="viewEventButtonsContainer">   
+
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 viewEventButtonHolder">
+        <%= link_to 'Edit', edit_event_path(@event), class: "redBtn btn-block"  %>
+      </div>
+
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 viewEventButtonHolder">
+        <%= link_to 'Back', events_path, class: "whiteBtn btn-block" %>
+      </div>
+      
+      
+      
+
+    </div>
+
+  </div>  
+
+  
+
+  <!--side -->
+  <div class="col-lg-2 col-md-0 col-sm-0 col-xs-0"></div>
+
+</div>
