@@ -14,7 +14,7 @@ module EventsHelper
 		
 		else 
 					
-			daysLeft = (eventDate - currentDate).to_i 
+			daysLeft = (eventDate - currentDate).floor 
 
 			if daysLeft == 1
 				result += daysLeft.to_s + " Day "
